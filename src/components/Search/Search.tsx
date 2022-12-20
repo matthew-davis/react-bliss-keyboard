@@ -2,7 +2,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { drawSearchResults, onSubmit, TSearchProps, TSearchResults } from './SearchUtils';
-import './search.css';
+import './Search.css';
 
 export const Search = (props: TSearchProps): React.ReactElement => {
   const { language, numberOfResults, menu, setHoveredKey, message } = props;

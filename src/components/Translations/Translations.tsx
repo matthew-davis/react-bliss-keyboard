@@ -4,7 +4,7 @@ import React from 'react';
 import { ELanguage } from '../Languages';
 import { TMenuState } from '../Menus';
 import { getRecordById, TTranslationsProps } from './TranslationsUtils';
-import './translations.css';
+import './Translations.css';
 
 export const Translations = (props: TTranslationsProps): React.ReactElement => {
   const { language, messageState } = props;
