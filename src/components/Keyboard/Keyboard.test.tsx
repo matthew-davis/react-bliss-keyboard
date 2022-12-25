@@ -1,12 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import * as React from 'react';
 import { Keyboard } from './Keyboard';
-import {TOptions} from "./KeyboardUtils";
-import {ELanguage} from "../Languages";
+import { KeyboardOptions } from './KeyboardUtils';
+import { ELanguage } from '../Languages';
 import '@testing-library/jest-dom';
 
 it("renders app with all of it's components", () => {
-  const testOptions: TOptions = {
+  const testOptions: KeyboardOptions = {
+    output: true,
     translation: true,
     search: true,
     numberOfResults: 10,
@@ -27,8 +28,6 @@ it("renders app with all of it's components", () => {
   const languages = result.container.querySelector('#languagesWrapper');
   const keys = result.container.querySelector('#keysWrapper');
 
-  expect(screen.getByAltText('Characters')).toBeInTheDocument();
-  expect(screen.getByAltText('Words')).toBeInTheDocument();
   expect(output).toBeInTheDocument();
   expect(translations).toBeInTheDocument();
   expect(search).toBeInTheDocument();

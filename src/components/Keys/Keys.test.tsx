@@ -24,7 +24,7 @@ it('renders the output with key characters and pos colours', () => {
       posColours={posColours}
       keyCharacters={keyCharacters}
       setHoveredKey={setHoveredKey}
-    />
+    />,
   );
 
   const pos = result.container.querySelector('.key--pos');
@@ -45,7 +45,7 @@ it('renders the output without key characters and pos colours', () => {
       posColours={posColours}
       keyCharacters={keyCharacters}
       setHoveredKey={setHoveredKey}
-    />
+    />,
   );
 
   const pos = result.container.querySelector('.key--pos');
@@ -63,7 +63,7 @@ it('characters can be selected', async () => {
       posColours={posColours}
       keyCharacters={keyCharacters}
       setHoveredKey={setHoveredKey}
-    />
+    />,
   );
 
   await user.click(screen.getByText('Q'));

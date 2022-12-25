@@ -24,7 +24,7 @@ it('renders the search without a search box or search results', () => {
       menu={menu}
       setHoveredKey={setHoveredKey}
       message={message}
-    />
+    />,
   );
 
   const searchResults = result.container.querySelector('.searchOutput');
@@ -41,7 +41,7 @@ it('searches for characters and words', async () => {
       menu={menu}
       setHoveredKey={setHoveredKey}
       message={message}
-    />
+    />,
   );
 
   await user.type(screen.getByRole('searchbox', { name: '' }), 'mother');

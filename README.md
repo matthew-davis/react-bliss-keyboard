@@ -5,7 +5,32 @@ into projects. Currently, there are roughly 1200 Bliss Characters and 4800 Bliss
 available.
 
 ### Example
-???
+Three things are exported from this library: Keyboard (the component), KeyboardOptions 
+(the options type) and sizeKeybaord (a function to resize the keyboard to the space available).
+
+```
+import { Keyboard, KeyboardOptions, sizeKeyboard } from 'react-bliss-keyboard';
+
+const App = () => {
+  const exampleOptions: KeyboardOptions = {
+    output: true,
+    translation: true,
+    search: true,
+    numberOfResults: 10,
+    menu: true,
+    definitions: true,
+    languages: true,
+    defaultLanguage: ELanguage.English,
+    posColours: true,
+    keyCharacters: true,
+  };
+  
+  useEffect(() => sizeKeyboard(), []);
+  window.addEventListener('resize', () => sizeKeyboard());
+  
+  return (<Keyboard options={exampleOptions} />);
+};
+```
 
 ### Description
 There are 7 key elements to the keyboard, from the bottom up there is the keyboard itself.

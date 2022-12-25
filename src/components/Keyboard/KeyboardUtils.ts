@@ -1,7 +1,8 @@
 import { ELanguage } from '../Languages';
 
 // Types
-export type TOptions = {
+export type KeyboardOptions = {
+  output: boolean;
   translation: boolean;
   search: boolean;
   numberOfResults: number;
@@ -15,7 +16,7 @@ export type TOptions = {
 
 // Utils
 export const sizeKeyboard = (): void => {
-  const keyboard: HTMLElement | null = document.getElementById('keyboardWrapper');
+  const keyboard: HTMLElement | null = document.getElementById('keysWrapper');
   if (keyboard) {
     if (keyboard.parentElement?.clientWidth) {
       keyboard.style.fontSize = `${keyboard.parentElement.clientWidth / 55}px`;

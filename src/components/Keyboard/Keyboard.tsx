@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import Characters from '../../assets/characters.svg';
-import Words from '../../assets/words.svg';
+import React, { useState } from 'react';
+import { ReactComponent as Characters } from '../../assets/characters.svg';
+import { ReactComponent as Words } from '../../assets/words.svg';
 import { Definitions, IDefinitionKey } from '../Definitions';
-import { sizeKeyboard, TOptions } from "./KeyboardUtils";
+import { KeyboardOptions } from './KeyboardUtils';
 import { Keys } from '../Keys';
 import { ELanguage, Languages } from '../Languages';
 import { Menus, TMenuState } from '../Menus';
@@ -11,20 +11,17 @@ import { Search } from '../Search';
 import { Translations } from '../Translations';
 import './Keyboard.css';
 
-export const Keyboard = ({ options }: TOptions) => {
+export const Keyboard = ({ options }: KeyboardOptions) => {
   const [languageState, setLanguageState] = useState<ELanguage>(options.defaultLanguage);
   const [menuState, setMenuState] = useState<TMenuState>({ menuKey: 1000, diacriticKey: 0 });
   const [messageState, setMessageState] = useState<TMessageState>([]);
   const [hoveredKey, setHoveredKey] = useState<IDefinitionKey | undefined>(undefined);
 
-  useEffect(() => sizeKeyboard(), []);
-  window.addEventListener('resize', () => sizeKeyboard());
-
   return (
     <div id={'appWrapper'}>
-      <img src={Characters} alt="Characters" height={0} width={0} />
-      <img src={Words} alt="Words" height={0} width={0} />
-      <Output messageState={messageState} />
+      <Characters height={0} width={0} />
+      <Words height={0} width={0} />
+      {options.output && <Output messageState={messageState} />}
       {options.translation && <Translations language={languageState} messageState={messageState} />}
       {options.search && (
         <Search

@@ -8,21 +8,21 @@ import '@testing-library/jest-dom';
 it('renders the language flag icons', () => {
   const language = { languageState: ELanguage.English, setLanguageState: jest.fn() };
 
-  render(<Languages language={language} />);
+  const result = render(<Languages language={language} />);
 
-  expect(screen.getByAltText('English')).toBeInTheDocument();
-  expect(screen.getByAltText('Swedish')).toBeInTheDocument();
-  expect(screen.getByAltText('Norwegian')).toBeInTheDocument();
-  expect(screen.getByAltText('Finnish')).toBeInTheDocument();
-  expect(screen.getByAltText('Hungarian')).toBeInTheDocument();
-  expect(screen.getByAltText('German')).toBeInTheDocument();
-  expect(screen.getByAltText('Dutch')).toBeInTheDocument();
-  expect(screen.getByAltText('Afrikaans')).toBeInTheDocument();
-  expect(screen.getByAltText('Russian')).toBeInTheDocument();
-  expect(screen.getByAltText('Latvian')).toBeInTheDocument();
-  expect(screen.getByAltText('Polish')).toBeInTheDocument();
-  expect(screen.getByAltText('French')).toBeInTheDocument();
-  expect(screen.getByAltText('Spanish')).toBeInTheDocument();
+  expect(result.container.querySelector('#english')).toBeInTheDocument();
+  expect(result.container.querySelector('#swedish')).toBeInTheDocument();
+  expect(result.container.querySelector('#norwegian')).toBeInTheDocument();
+  expect(result.container.querySelector('#finnish')).toBeInTheDocument();
+  expect(result.container.querySelector('#hungarian')).toBeInTheDocument();
+  expect(result.container.querySelector('#german')).toBeInTheDocument();
+  expect(result.container.querySelector('#dutch')).toBeInTheDocument();
+  expect(result.container.querySelector('#afrikaans')).toBeInTheDocument();
+  expect(result.container.querySelector('#russian')).toBeInTheDocument();
+  expect(result.container.querySelector('#latvian')).toBeInTheDocument();
+  expect(result.container.querySelector('#polish')).toBeInTheDocument();
+  expect(result.container.querySelector('#french')).toBeInTheDocument();
+  expect(result.container.querySelector('#spanish')).toBeInTheDocument();
 });
 
 it('clicking another flag changes the language', async () => {
@@ -30,8 +30,11 @@ it('clicking another flag changes the language', async () => {
   const setLanguageState = jest.fn();
   const language = { languageState: ELanguage.English, setLanguageState };
 
-  render(<Languages language={language} />);
-  await user.click(screen.getByAltText('Swedish'));
+  const result = render(<Languages language={language} />);
+  const flagContainer = result.container.querySelector('#swedish');
+  const flag: any = flagContainer ? flagContainer.querySelector('div') : null;
+
+  await user.click(flag);
 
   expect(setLanguageState).toHaveBeenCalledWith(ELanguage.Swedish);
 });
