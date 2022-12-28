@@ -11,7 +11,7 @@ import { Search } from '../Search';
 import { Translations } from '../Translations';
 import './Keyboard.css';
 
-export const Keyboard = ({ options }: KeyboardOptions) => {
+export const Keyboard = (options: KeyboardOptions) => {
   const [languageState, setLanguageState] = useState<ELanguage>(options.defaultLanguage);
   const [menuState, setMenuState] = useState<TMenuState>({ menuKey: 1000, diacriticKey: 0 });
   const [messageState, setMessageState] = useState<TMessageState>([]);

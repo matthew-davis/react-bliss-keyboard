@@ -19,7 +19,7 @@ it("renders app with all of it's components", () => {
     keyCharacters: true,
   };
 
-  const result = render(<Keyboard options={testOptions} />);
+  const result = render(<Keyboard {...testOptions} />);
   const output = result.container.querySelector('#outputWrapper');
   const translations = result.container.querySelector('#translationsWrapper');
   const search = result.container.querySelector('#searchWrapper');
